@@ -1,0 +1,92 @@
+// Given a linked list, remove the nth node from the end of list and return its head.
+// Given linked list: 1->2->3->4->5, and n = 2.
+// After removing the second node from the end, the linked list becomes 1->2->3-
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode *removeNthFromEnd(ListNode *head, int n) {
+        /* 2 pointers is the key !!! */
+
+        ListNode *current = head;
+        ListNode *left = NULL;
+        int count = 1;
+        
+        if (head == NULL)
+            return NULL;
+        
+        while(current != NULL){
+            if (count == n){
+                left = head;
+            }
+            
+            if (current -> next == NULL ){
+                if ( left != NULL ) {
+                    return left->next;
+                }
+            }
+
+            if (current -> next -> next == NULL) {
+                if (left != NULL ) {
+                    ListNode *temp = left -> next;
+                    left -> next = left -> next -> next;
+                    delete temp; 
+                    return head;
+                }
+            }
+                        
+            current = current -> next; 
+            if (left != NULL) {
+                left = left -> next;
+            }
+            count ++;
+        }
+
+    }
+};
+
+
+// Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+// The brackets must close in the correct order, "()" and "()[]{}" are all valid but "(]" and "([)]" are not.
+class Solution {
+    /* use stack */
+public:
+   bool isPair(char left, char right)
+    {
+        if (left == '(' && right == ')')
+            return true;
+            
+        if (left == '{' && right == '}')
+            return true;
+            
+        if (left == '[' && right == ']' )
+            return true;            
+
+        return false;
+    }
+
+    bool isValid(string s) {
+        // Start typing your C/C++ solution below
+        // DO NOT write int main() function
+        stack<char> chars;
+        for (size_t i = 0 ; i < s.size(); ++i ) {
+            if (!chars.empty() && isPair(chars.top(),s[i])){
+                chars.pop();
+            }else{                
+                chars.push(s[i]);
+            }
+        }
+        
+        if(chars.empty()){
+            return true;
+        }else {
+            return false;
+        }
+    }
+};
