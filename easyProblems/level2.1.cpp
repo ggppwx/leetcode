@@ -90,3 +90,127 @@ public:
         }
     }
 };
+
+
+// Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists.
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode *mergeTwoLists(ListNode *l1, ListNode *l2) {
+        // Start typing your C/C++ solution below
+        // DO NOT write int main() function
+        ListNode *newList = NULL;
+        ListNode *start = NULL;
+        ListNode *left = l1;
+        ListNode *right = l2;
+        while(left != NULL && right != NULL){
+            if (left -> val < right -> val ) {
+                // put left to new list
+                if ( newList == NULL){
+                    newList = left;
+                    start = newList;
+                }else{
+                    newList -> next = left;
+                    newList = newList -> next; /*!! the way to 
+                                                 insert a node to a new link list, don't forget to move the pointer to link list*/
+                }                
+                left = left -> next;
+                
+            } else {
+                if (newList == NULL){
+                    newList = right;
+                    start = newList;
+                }else{
+                    newList -> next = right; 
+                    newList = newList -> next;
+                }
+                right = right -> next;
+            }   
+            
+        }
+        
+        
+        if ( left == NULL ){
+            if (newList == NULL)
+                return right;
+                
+            newList -> next = right;
+        }
+        
+        if (right == NULL){
+            if (newList == NULL)
+                return left;
+            
+            newList -> next = left;
+        }
+        
+        return start; /*!! remeber return head. */
+              
+    }
+};
+
+
+// Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
+// For example, given n = 3, a solution set is:
+// "((()))", "(()())", "(())()", "()(())", "()()()"
+class Solution {
+public:
+    vector<string> generateParenthesis(int n) {
+        // Start typing your C/C++ solution below
+        // DO NOT write int main() function
+        N = n;
+        result.clear();
+        addPar("", 0);
+        return result;
+    }
+        
+    void addPar(string current, int level){
+        if ( level == N * 2 ) {
+            if (isValid(current)){
+                result.push_back(current);
+            }
+            return;
+        }
+        
+        addPar(current + "(" , level + 1);        
+        addPar(current + ")" , level + 1);
+    }
+    
+    bool isValid(string s)
+    {
+        stack<char> st;
+        for(size_t i = 0; i<s.size();++i){
+            if (st.empty()){
+                if ( s[i] == ')' ){
+                    return false;
+                }else{
+                    st.push(s[i]);
+                }
+                continue; /*pitfall here !!! 
+                            notice the if condition in the loop*/
+            }
+            
+            if (st.top() == '(' && s[i] == ')'){
+                st.pop();
+            }else{
+                st.push(s[i]);
+            }
+        }
+        if (st.empty()){
+            return true;
+        }else{
+            return false;
+        }
+        
+    }
+    
+    int N;    
+    vector<string> result;
+};
