@@ -161,3 +161,62 @@ public:
         
     }
 };
+
+
+// path sum 2 
+/**
+ * Definition for binary tree
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    vector<vector<int> > pathSum(TreeNode *root, int sum) {
+        // Start typing your C/C++ solution below
+        // DO NOT write int main() function
+        result.clear();
+        vector<int> path;
+        sum1(root, sum, path);
+        return result;
+    }
+    
+    void sum1(TreeNode *root, int sum, vector<int>& path)
+    {
+        if (root == NULL ){
+            return;
+        }
+        
+        int current = root -> val;
+        path.push_back(current);
+        
+        if ( root -> left == NULL && root -> right == NULL ){ // leaf node 
+            if ( sum == root -> val ) {
+                //  put the vector to result                                 
+                result.push_back(path);
+                path.pop_back();
+                return; 
+            }else {
+                path.pop_back();
+                return; 
+            } 
+        
+        } 
+ 
+        
+        sum1(root->left , sum - current, path) ;
+        
+        sum1(root->right, sum - current, path );
+        
+        path.pop_back();
+        
+    }
+    
+    vector<vector<int> > result;
+    
+};
+
+
