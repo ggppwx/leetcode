@@ -219,4 +219,32 @@ public:
     
 };
 
+// pascial triangle 
+class Solution {
+public:
+    vector<vector<int> > generate(int numRows) {
+        vector<vector<int> > A; 
+        
+        for (int i = 0; i < numRows; ++i) {
+            
+            // for each row , it has i + 1 items
+            vector<int> temp(i+1);
+            A.push_back(temp); 
+            
+            for (int j = 0; j <= i; ++j) {
+                if ( j == 0 || j == i ){
+                    A[i][j] = 1;
+                } else {
+                    A[i][j] = A[i-1][j-1] + A[i-1][j];
+                }
+                
+                
+            } 
+            
+        }
+        
+        return A;
+        
+    }
+};
 
