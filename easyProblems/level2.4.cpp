@@ -29,3 +29,44 @@ public:
           
     }
 };
+
+
+// Given a binary tree containing digits from 0-9 only, each root-to-leaf path could represent a number.
+// An example is the root-to-leaf path 1->2->3 which represents the number 123.
+// Find the total sum of all root-to-leaf numbers.
+
+class Solution {
+public:
+    int sumNumbers(TreeNode *root) {
+        // Start typing your C/C++ solution below
+        // DO NOT write int main() function
+        result.clear();
+        dfs(root, 0);
+        int sum = 0;
+        for (int i = 0; i < result.size(); ++i){
+            sum += result[i];
+        } 
+        return sum;
+    }
+    
+    
+    void dfs (TreeNode *node, int sum ) 
+    {
+        if(node == NULL ){
+            return; 
+        }
+        
+        int val = node -> val; 
+        if (node -> left == NULL && node -> right == NULL ){
+            // leaf 
+            result.push_back( val + sum * 10 );
+        } 
+        
+        dfs(node -> left, sum * 10 + val );
+        
+        dfs(node -> right, sum * 10 + val ); 
+        
+    }
+      
+    vector<int> result;
+};
