@@ -107,3 +107,50 @@ public:
         
     }
 };
+
+// The string "PAYPALISHIRING" is written in a zigzag pattern on a given number of rows like this:
+// (you may want to display this pattern in a fixed font for better legibility)
+class Solution {
+public:
+    string convert(string s, int nRows) {
+        // Start typing your C/C++ solution below
+        // DO NOT write int main() function    
+        vector<vector<char> > res(nRows);
+        int idx = 0;
+        bool reverse = false; 
+        
+        for(int i = 0; i < s.size();){
+            char curr = s[i];
+  
+            if (idx == nRows ){
+                reverse = ! reverse;
+                idx = 0;
+            }
+            
+            if (! reverse ) {
+                res[idx].push_back(curr);
+                ++i;
+            }else {
+                if (idx != nRows - 1 && idx != 0 ) {   /* this is the key. observe what the order is like */
+                 res[nRows-1-idx].push_back(curr);   
+                 ++i;
+                }
+                
+            }
+            
+            
+            idx ++; 
+            
+        }
+        
+        string result(""); 
+        for (int i = 0; i < nRows; ++i) {
+            for (int j = 0; j < res[i].size(); ++j){
+                result = result + res[i][j];   
+            }
+        }
+        
+        return result; 
+        
+    }
+};
