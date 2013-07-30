@@ -154,3 +154,31 @@ public:
         
     }
 };
+
+
+// container with most water
+class Solution {
+public:
+    int maxArea(vector<int> &height) {
+        // Start typing your C/C++ solution below
+        // DO NOT write int main() function
+        int max = -1;
+        int maxSlate = -1;
+        int len = height.size();
+        int i = 1;
+        int j = len;
+        while(i < j){
+            int vol = min(height[i-1], height[j-1])* (j -i);
+            if ( vol > max ){
+                max = vol; 
+            }
+            if (height[i-1] > height[j-1]){ /* check if the lower bar has a chance to be higher */
+                j -- ; 
+            }else {
+                i ++;
+            }
+            
+        }
+        return max; 
+    }
+};
