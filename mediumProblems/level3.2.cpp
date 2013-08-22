@@ -44,3 +44,61 @@ public:
         
     }
 };
+
+
+
+// merge k sorted list 
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode *mergeKLists(vector<ListNode *> &lists) {
+        ListNode *newList = NULL;
+        ListNode *curr = NULL; 
+        int ind; 
+        while (ind != -1 ) {
+            ind = findMinNode(lists);
+            if (ind == -1 ) {
+                break;
+            }
+            ListNode *newNode = lists[ind];
+            lists[ind] = lists[ind] -> next ; 
+            newNode -> next = NULL;
+            
+            if ( curr == NULL ) {
+                curr = newNode;
+                newList = curr; 
+            }else {
+                curr -> next = newNode;
+                curr = curr -> next; 
+            }
+            
+        }
+        return newList;
+        
+    }
+    
+    int findMinNode(vector<ListNode *> lists){
+        int min = 1000000;
+        int res = -1;
+        for (int i = 0; i < lists.size() ; ++i) {
+            ListNode *node = lists[i];
+            if ( node == NULL ) {
+                continue; 
+            }
+            
+            if ( node -> val < min ){
+                min = node ->val; 
+                res = i;
+            }
+        }
+        return res;
+    }
+    
+};
