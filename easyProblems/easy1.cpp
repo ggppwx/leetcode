@@ -13,8 +13,6 @@
 class Solution {
 public:
     int removeDuplicates(int A[], int n) {
-        // Start typing your C/C++ solution below
-        // DO NOT write int main() function
         int temp = -100000;
         for ( int i = 0; i < n ; ) {
             if ( temp == A[i]) {
@@ -42,8 +40,6 @@ public:
 class Solution {
 public:
     int removeElement(int A[], int n, int elem) {
-        // Start typing your C/C++ solution below
-        // DO NOT write int main() function
         for (int i = 0 ; i < n ;) {
             if ( A[i] == elem ) {
                 // remove the elme 
@@ -77,8 +73,6 @@ public:
 class Solution {
 public:
     int lengthOfLastWord(const char *s) {
-        // Start typing your C/C++ solution below
-        // DO NOT write int main() function
         int i = 0;
         int count = 0;
         int last = 0; 
@@ -141,8 +135,6 @@ another solution is to get a reversed vector of digits, then inverse it
 class Solution {
 public:
     vector<int> plusOne(vector<int> &digits) {
-        // Start typing your C/C++ solution below
-        // DO NOT write int main() function
         vector<int> result;
         pOne(digits, digits.size() - 1, result);
         return result;

@@ -1,0 +1,95 @@
+* interview questions 
+** index 
+[[link todo][to todo list]]
+
+** general questions 
++ most interesting bug 
++ most impressive code 
++ interesting project 
++ technology you use. 
++ general archecture of Bloomberg terminal 
+
+
+** algorithms 
+see reference http://www.github.com 
+*** string manipulation 
+*** array & list 
+*** stack & heap & map
+*** tree 
+*** graph 
+*** dynamic programming 
+
+
+
+** language related 
+*** c++
++ object oriented feature 
++ template programming 
+
+*** javascript 
++ write js in object-oriented way 
++ 
+
+
+** design related 
++ describe a design pattern 
++ given a problem, give the design 
+
+
+** specific areas 
++ concepts in operating system 
++ some algo in heuristic problem solving 
++ concepts in distributed system
++ basic probablity & statistics 
++ data mining & web search engine 
++ mathematics 
+
+** project related 
+*** academic project 
++ distributed system. 
+
+
+
+*** work project 
+**** intership 
++ Log analyze system. 
++ new generic widget 
++ 
+
+
+**** full-time 
++ portflio workflow (reporting )
+  - xml formatting 
+  - PRMC <GO>, a portflio debug tool 
++ portfolio analytic interface 
+  - enhacement of p2ftsvc, a metadata service 
+  - enhacement of indicator picker, DMP publishing 
+  - reporting functionality of cash-flow service 
+  - PI service, a infrustructure revamp. 
+
+
+
+
+
+** notes 
++ writing code fast 
++ corner case 
++ problem solving 
+
+
+** todo list <<link todo>>
+*** TODO leetcode online judge 
++ [X] level 1 
++ [X] level 2 
++ [ ] level 3
++ [ ] level 4
++ [ ] level 5    
+**** TODO complete 60 problems 
+**** TODO complete 100 problems 
+     
+*** TODO review basic algo 
+
+*** TODO review language related
+
+*** TODO review design 
+

@@ -16,10 +16,7 @@
  */
 class Solution {
 public:
-    ListNode *deleteDuplicates(ListNode *head) {
-        // Start typing your C/C++ solution below
-        // DO NOT write int main() function
-        
+    ListNode *deleteDuplicates(ListNode *head) {        
         ListNode *currNode = head;
         ListNode *previousNode = NULL;
         int currVal = -10000;
@@ -57,10 +54,7 @@ public:
  */
 class Solution {
 public:
-    bool isSameTree(TreeNode *p, TreeNode *q) {
-        // Start typing your C/C++ solution below
-        // DO NOT write int main() function
-        
+    bool isSameTree(TreeNode *p, TreeNode *q) {        
         // traverse tree 
         return compare(p, q);
         
@@ -98,8 +92,6 @@ public:
 class Solution {
 public:
     bool isSymmetric(TreeNode *root) {
-        // Start typing your C/C++ solution below
-        // DO NOT write int main() function        
         if (root == NULL ){ /* conner case NULL in pointer based structure, i.e
                             tree,  link list
                             */
@@ -153,8 +145,6 @@ public:
 class Solution {
 public:
     int maxDepth(TreeNode *root) {
-        // Start typing your C/C++ solution below
-        // DO NOT write int main() function
         if (root == NULL )
             return 0;
 
@@ -165,6 +155,5 @@ public:
             return (leftDepth + 1);
         else 
             return (rightDepth + 1);
-
     }
 };
