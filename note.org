@@ -21,3 +21,19 @@ public:
 JUST write down each number and find the pattern
 
 
+
+
+* 226 invert binary tree
+note we need to invert the pointer to left/right child, not the value.
+
+
+* 237 delete Node in a tree 
+since it's a signle link list. instead of deleting the node itself, we should change the value 
+
+* 100 is same tree 
+check the tree value 
+
+* 171 excel sheet number 
+get base to the power exponent:  pow()
+
+
