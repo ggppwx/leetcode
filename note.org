@@ -37,3 +37,22 @@ check the tree value
 get base to the power exponent:  pow()
 
 
+
+
+* 206 reverse linke
+be aware of the conner case. don't forget the first node, don't forget some 
+extream cases
+
+
+
+
+* [#A] 198 house robber 
+this is a DP problem. recursive solution is better. 
+
+
+
+* 101 symmetric tree
+
+
+* realize the conner case 
+ 
